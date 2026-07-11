@@ -446,7 +446,7 @@
     }
 
   
-    /* === CAAP 2.2 : APPLICATION MULTI-ÉCRANS === */
+    /* === CAAP 2.2.1 : CORRECTIF ACTIVITÉS === */
     body { padding-bottom: 92px; }
     .app-view { display: none; width: 100%; max-width: 920px; }
     .app-view.active { display: block; animation: fadeInUp .35s ease both; }
@@ -851,13 +851,12 @@
         <label for="activite">🏃 Type d'activité</label>
         <select id="activite" required>
           <option value="">-- Sélectionnez --</option>
-          <option value="Course à pied">Course à pied</option>
           <option value="Marche">Marche</option>
-          <option value="Vélo">Vélo</option>
-          <option value="Rollers / Skateboard">Rollers / Skateboard</option>
+          <option value="Course à pied">Course à pied</option>
+          <option value="Cyclisme">Cyclisme</option>
           <option value="Natation">Natation</option>
+          <option value="Trottinette / Skateboard (non électrique)">Trottinette / Skateboard (non électrique)</option>
           <option value="Fauteuil roulant">Fauteuil roulant</option>
-          <option value="Autre">Autre</option>
         </select>
       </div>
 
@@ -1409,13 +1408,44 @@ function populateDynamicSelects(data) {
     if ([...schoolSelect.options].some(function(o) { return o.value === previous; })) schoolSelect.value = previous;
   }
 
-  if (activitySelect && Array.isArray(data.activitesDisponibles)) {
+  if (activitySelect) {
+    const fallbackActivities = [
+      "Marche",
+      "Course à pied",
+      "Cyclisme",
+      "Natation",
+      "Trottinette / Skateboard (non électrique)",
+      "Fauteuil roulant"
+    ];
+
+    const apiActivities =
+      Array.isArray(data.activitesDisponibles) &&
+      data.activitesDisponibles.length
+        ? data.activitesDisponibles
+        : fallbackActivities;
+
     const previous = activitySelect.value;
-    activitySelect.innerHTML = '<option value="">-- Sélectionnez --</option>' +
-      data.activitesDisponibles.map(function(name) {
-        return '<option value="' + escapeHtml(name) + '">' + escapeHtml(name) + '</option>';
-      }).join("");
-    if ([...activitySelect.options].some(function(o) { return o.value === previous; })) activitySelect.value = previous;
+
+    // Création des options une par une : plus fiable sur Safari/iPhone.
+    activitySelect.replaceChildren();
+
+    const placeholder = document.createElement("option");
+    placeholder.value = "";
+    placeholder.textContent = "-- Sélectionnez --";
+    activitySelect.appendChild(placeholder);
+
+    apiActivities.forEach(function(name) {
+      const option = document.createElement("option");
+      option.value = String(name);
+      option.textContent = String(name);
+      activitySelect.appendChild(option);
+    });
+
+    if ([...activitySelect.options].some(function(option) {
+      return option.value === previous;
+    })) {
+      activitySelect.value = previous;
+    }
   }
 }
 
