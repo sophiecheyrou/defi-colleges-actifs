@@ -1,4 +1,4 @@
-const CACHE_NAME = "caap-pwa-v2-2-1";
+const CACHE_NAME = "caap-pwa-v3-1";
 const APP_SHELL = [
   "./",
   "./index.html",
