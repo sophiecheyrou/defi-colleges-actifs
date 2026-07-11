@@ -418,26 +418,18 @@
         height: 104px;
       }
       .submit-btn {
-        position: fixed;
-        z-index: 999;
-        left: 8px;
-        right: 8px;
-        bottom: max(8px, env(safe-area-inset-bottom));
-        width: auto;
-        min-height: 56px;
-        margin: 0;
+        position: static;
+        width: 100%;
+        min-height: 58px;
+        margin: 14px 0 0;
         border-radius: 16px;
         font-size: 1rem;
-        box-shadow: 0 10px 28px rgba(0,0,0,0.28);
+        box-shadow: 0 8px 22px rgba(255,107,53,0.30);
       }
       .status-message {
-        position: fixed;
-        z-index: 1001;
-        left: 10px;
-        right: 10px;
-        bottom: max(76px, calc(env(safe-area-inset-bottom) + 70px));
-        margin: 0;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        position: static;
+        margin: 12px 0 0;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.12);
       }
       .footer {
         margin-top: 14px;
@@ -446,7 +438,7 @@
     }
 
   
-    /* === CAAP 3.1 : SÉLECTIONS TACTILES === */
+    /* === CAAP 4.0 : ERGONOMIE STABILISÉE === */
     body { padding-bottom: 92px; }
     .app-view { display: none; width: 100%; max-width: 920px; }
     .app-view.active { display: block; animation: fadeInUp .35s ease both; }
@@ -568,8 +560,8 @@
     .bottom-nav {
       position:fixed; z-index:1100; left:50%; transform:translateX(-50%);
       bottom:max(8px,env(safe-area-inset-bottom));
-      width:min(620px,calc(100% - 16px));
-      display:grid; grid-template-columns:repeat(4,1fr);
+      width:min(760px,calc(100% - 16px));
+      display:grid; grid-template-columns:repeat(5,minmax(0,1fr));
       background:rgba(255,255,255,.97); border:1px solid rgba(0,0,0,.07);
       border-radius:20px; padding:7px; box-shadow:0 12px 34px rgba(0,0,0,.23);
       backdrop-filter:blur(12px);
@@ -592,8 +584,8 @@
       .result-grid { grid-template-columns:1fr; }
       .action-grid { grid-template-columns:1fr; }
       .app-view { max-width:none; }
-      #view-participer .submit-btn { bottom:max(78px,calc(env(safe-area-inset-bottom) + 70px)); }
-      #view-participer .status-message { bottom:max(145px,calc(env(safe-area-inset-bottom) + 138px)); }
+      #view-participer .submit-btn { position:static; bottom:auto; }
+      #view-participer .status-message { position:static; bottom:auto; }
     }
 
   
@@ -793,6 +785,59 @@
       }
       .choice-card .choice-label {
         font-size: .7rem;
+      }
+    }
+
+  
+    /* === CAAP 4.0 : CORRECTIFS ERGONOMIQUES === */
+    .bottom-nav {
+      align-items: stretch;
+    }
+    .nav-btn {
+      min-width: 0;
+      min-height: 58px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.15;
+      white-space: normal;
+      text-align: center;
+    }
+    .nav-btn b {
+      flex: 0 0 auto;
+    }
+    #view-participer .form-container {
+      padding-bottom: 24px;
+    }
+    #view-participer .photo-section {
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 621px) {
+      .bottom-nav {
+        width: min(760px, calc(100% - 24px));
+      }
+      .nav-btn {
+        font-size: .68rem;
+      }
+    }
+
+    @media (max-width: 620px) {
+      body {
+        padding-bottom: calc(100px + env(safe-area-inset-bottom));
+      }
+      .bottom-nav {
+        width: calc(100% - 12px);
+        grid-template-columns: repeat(5, minmax(0,1fr));
+        padding: 6px 4px;
+      }
+      .nav-btn {
+        padding: 7px 2px;
+        font-size: .56rem;
+      }
+      .nav-btn b {
+        font-size: 1.05rem;
       }
     }
 
