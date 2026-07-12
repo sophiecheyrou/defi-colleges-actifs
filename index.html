@@ -438,7 +438,7 @@
     }
 
   
-    /* === CAAP 4.0 : ERGONOMIE STABILISÉE === */
+    /* === CAAP 4.1 PREMIUM : REFONTE VISUELLE === */
     body { padding-bottom: 92px; }
     .app-view { display: none; width: 100%; max-width: 920px; }
     .app-view.active { display: block; animation: fadeInUp .35s ease both; }
@@ -841,6 +841,383 @@
       }
     }
 
+  
+    /* === CAAP 4.1 PREMIUM — REFONTE VISUELLE === */
+    :root {
+      --premium-navy: #12355B;
+      --premium-ink: #1E293B;
+      --premium-soft: #F8FAFC;
+      --premium-line: #E2E8F0;
+      --premium-gold: #F4C542;
+    }
+
+    body {
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255,255,255,.28), transparent 28%),
+        radial-gradient(circle at 85% 0%, rgba(255,255,255,.18), transparent 24%),
+        linear-gradient(135deg, #FFB36A 0%, #FFE471 48%, #A5E4B4 100%);
+      background-attachment: fixed;
+    }
+
+    .live-card {
+      max-width: 860px;
+      padding: 0;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.7);
+      box-shadow: 0 24px 60px rgba(18,53,91,.18);
+    }
+
+    .premium-hero {
+      position: relative;
+      padding: 30px 24px 26px;
+      text-align: center;
+      color: white;
+      background:
+        radial-gradient(circle at 78% 20%, rgba(255,255,255,.18), transparent 28%),
+        linear-gradient(135deg, var(--premium-navy), var(--primary));
+      overflow: hidden;
+    }
+
+    .premium-hero::before,
+    .premium-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .premium-hero::before {
+      width: 180px;
+      height: 180px;
+      left: -60px;
+      top: -80px;
+    }
+
+    .premium-hero::after {
+      width: 140px;
+      height: 140px;
+      right: -55px;
+      bottom: -75px;
+    }
+
+    .premium-badge {
+      position: relative;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.16);
+      border: 1px solid rgba(255,255,255,.24);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    .premium-hero h1 {
+      position: relative;
+      z-index: 1;
+      margin: 14px 0 4px;
+      font-size: clamp(1.9rem, 6vw, 3rem);
+      line-height: 1.05;
+      color: white;
+    }
+
+    .premium-hero p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      opacity: .92;
+      font-weight: 600;
+    }
+
+    .premium-main-stat {
+      position: relative;
+      z-index: 1;
+      margin: 22px auto 8px;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      padding: 16px 22px;
+      border-radius: 22px;
+      background: white;
+      color: var(--premium-ink);
+      box-shadow: 0 14px 34px rgba(0,0,0,.18);
+    }
+
+    .premium-main-stat strong {
+      font-size: clamp(2.2rem, 8vw, 4.2rem);
+      line-height: .95;
+      color: var(--primary);
+      letter-spacing: -.05em;
+    }
+
+    .premium-main-stat span {
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--premium-navy);
+    }
+
+    .premium-meta {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .premium-meta span {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.22);
+      font-size: .72rem;
+      font-weight: 700;
+    }
+
+    .premium-content {
+      padding: 22px;
+      background: rgba(255,255,255,.98);
+    }
+
+    .live-kpis {
+      gap: 12px;
+      margin: 0 0 18px;
+    }
+
+    .live-kpi {
+      position: relative;
+      overflow: hidden;
+      padding: 17px 10px;
+      background: linear-gradient(180deg, #FFFFFF, #F8FAFC);
+      border: 1px solid var(--premium-line);
+      box-shadow: 0 8px 22px rgba(15,23,42,.06);
+    }
+
+    .live-kpi::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+    }
+
+    .live-kpi strong {
+      font-size: 1.55rem;
+      color: var(--premium-navy);
+    }
+
+    .goal-box {
+      position: relative;
+      padding: 18px;
+      border: 1px solid rgba(255,107,53,.15);
+      background: linear-gradient(135deg, rgba(78,205,196,.16), rgba(255,107,53,.10));
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .goal-track {
+      height: 18px;
+      padding: 3px;
+      background: rgba(255,255,255,.75);
+      border: 1px solid rgba(18,53,91,.10);
+    }
+
+    .goal-fill {
+      background: linear-gradient(90deg, var(--secondary), var(--primary), #FFB347);
+      box-shadow: 0 0 16px rgba(255,107,53,.35);
+    }
+
+    .premium-goals {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0,1fr));
+      gap: 8px;
+      margin: 16px 0 4px;
+    }
+
+    .premium-goal {
+      padding: 10px 7px;
+      border-radius: 14px;
+      background: #F8FAFC;
+      border: 1px solid var(--premium-line);
+      text-align: center;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .premium-goal.reached {
+      background: linear-gradient(135deg, rgba(168,213,0,.18), rgba(78,205,196,.16));
+      border-color: rgba(168,213,0,.45);
+    }
+
+    .premium-goal.current {
+      background: linear-gradient(135deg, rgba(255,107,53,.14), rgba(255,196,66,.16));
+      border-color: rgba(255,107,53,.45);
+      box-shadow: 0 8px 20px rgba(255,107,53,.12);
+      transform: translateY(-2px);
+    }
+
+    .premium-goal .emoji {
+      display: block;
+      font-size: 1.25rem;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .premium-goal strong {
+      display: block;
+      font-size: .68rem;
+      color: var(--premium-ink);
+      line-height: 1.15;
+    }
+
+    .premium-goal small {
+      display: block;
+      margin-top: 3px;
+      color: var(--text-light);
+      font-size: .58rem;
+      font-weight: 700;
+    }
+
+    .premium-section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 24px 0 12px;
+    }
+
+    .premium-section-heading h2 {
+      margin: 0;
+      font-size: 1.15rem;
+      color: var(--premium-navy);
+    }
+
+    #homePodium {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: end;
+      gap: 12px;
+    }
+
+    #homePodium .rank-row {
+      display: flex;
+      flex-direction: column;
+      min-height: 150px;
+      justify-content: center;
+      padding: 18px 12px;
+      text-align: center;
+      border-left: 0 !important;
+      border-top: 6px solid var(--secondary);
+      border-radius: 20px;
+      background: linear-gradient(180deg, #FFFFFF, #F8FAFC);
+      box-shadow: 0 12px 28px rgba(15,23,42,.08);
+    }
+
+    #homePodium .rank-row:nth-child(1) {
+      min-height: 185px;
+      order: 2;
+      border-top-color: #F4C542 !important;
+      background: linear-gradient(180deg, #FFF9D9, #FFFFFF);
+    }
+
+    #homePodium .rank-row:nth-child(2) {
+      order: 1;
+      border-top-color: #B7C3D0 !important;
+    }
+
+    #homePodium .rank-row:nth-child(3) {
+      order: 3;
+      border-top-color: #CD7F32 !important;
+    }
+
+    #homePodium .rank-pos {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    #homePodium .rank-name {
+      font-size: .88rem;
+      color: var(--premium-navy);
+    }
+
+    #homePodium .rank-sub {
+      margin-top: 7px;
+      font-size: .64rem;
+    }
+
+    #homePodium .rank-value {
+      margin-top: 10px;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .action-grid {
+      margin-top: 22px;
+    }
+
+    .app-action {
+      min-height: 58px;
+      border-radius: 16px;
+      box-shadow: 0 10px 22px rgba(15,23,42,.08);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .app-action:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(15,23,42,.13);
+    }
+
+    .premium-countdown {
+      font-weight: 900;
+    }
+
+    .premium-animate {
+      animation: premiumRise .55s ease both;
+    }
+
+    @keyframes premiumRise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 720px) {
+      .premium-content { padding: 16px 13px; }
+      .premium-hero { padding: 24px 16px 22px; }
+      .premium-main-stat { padding: 14px 18px; }
+      .premium-goals {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .premium-goal:last-child {
+        grid-column: 1 / -1;
+      }
+      #homePodium {
+        grid-template-columns: 1fr;
+      }
+      #homePodium .rank-row,
+      #homePodium .rank-row:nth-child(1),
+      #homePodium .rank-row:nth-child(2),
+      #homePodium .rank-row:nth-child(3) {
+        order: initial;
+        min-height: auto;
+        flex-direction: row;
+        display: grid;
+        grid-template-columns: 42px 1fr auto;
+        text-align: left;
+        border-top-width: 0;
+        border-left: 6px solid var(--secondary) !important;
+      }
+      #homePodium .rank-value {
+        margin-top: 0;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -853,43 +1230,57 @@
   </div>
 
   <section id="view-accueil" class="app-view active">
-    <div class="live-card">
-      <div class="live-hero">
-        <div class="app-icon">🏃</div>
+    <div class="live-card premium-animate">
+      <div class="premium-hero">
+        <div class="premium-badge">🏃 CAAP CHALLENGE • RENTRÉE 2026</div>
         <h1 id="liveChallengeName">Défi Collèges Actifs</h1>
         <p id="liveSlogan">Chaque kilomètre compte !</p>
-        <div class="live-period" id="livePeriod">Chargement des dates…</div>
+
+        <div class="premium-main-stat">
+          <strong id="premiumKmCounter">0</strong>
+          <span>km</span>
+        </div>
+
+        <div class="premium-meta">
+          <span id="livePeriod">Chargement des dates…</span>
+          <span class="premium-countdown" id="premiumCountdown">⏳ Calcul en cours</span>
+        </div>
       </div>
 
-      <div id="liveLoading" class="loading-box">Actualisation des résultats…</div>
-      <div id="liveContent" hidden>
-        <div class="live-kpis">
-          <div class="live-kpi"><strong id="kpiParticipants">0</strong><span>PARTICIPANTS</span></div>
-          <div class="live-kpi"><strong id="kpiKm">0 km</strong><span>KILOMÈTRES</span></div>
-          <div class="live-kpi"><strong id="kpiParticipations">0</strong><span>PARTICIPATIONS</span></div>
-          <div class="live-kpi"><strong id="kpiSchools">0</strong><span>COLLÈGES ACTIFS</span></div>
-        </div>
+      <div class="premium-content">
+        <div id="liveLoading" class="loading-box">Actualisation des résultats…</div>
 
-        <div class="goal-box">
-          <div class="goal-head">
-            <strong id="goalLevel">🎯 Objectif</strong>
-            <span id="goalPercent">0 %</span>
+        <div id="liveContent" hidden>
+          <div class="live-kpis">
+            <div class="live-kpi"><strong id="kpiParticipants">0</strong><span>PARTICIPANTS</span></div>
+            <div class="live-kpi"><strong id="kpiKm">0 km</strong><span>KILOMÈTRES</span></div>
+            <div class="live-kpi"><strong id="kpiParticipations">0</strong><span>PARTICIPATIONS</span></div>
+            <div class="live-kpi"><strong id="kpiSchools">0</strong><span>COLLÈGES ACTIFS</span></div>
           </div>
-          <div class="goal-track"><div class="goal-fill" id="goalFill"></div></div>
-          <div class="goal-caption" id="goalCaption">Chargement…</div>
-        </div>
 
-        <div class="section-title">
-          <h2>🏆 Podium kilométrique</h2>
-          <button class="refresh-live" type="button" data-refresh-live>↻</button>
-        </div>
-        <div id="homePodium" class="podium-list"></div>
+          <div class="goal-box">
+            <div class="goal-head">
+              <strong id="goalLevel">🎯 Objectif</strong>
+              <span id="goalPercent">0 %</span>
+            </div>
+            <div class="goal-track"><div class="goal-fill" id="goalFill"></div></div>
+            <div class="goal-caption" id="goalCaption">Chargement…</div>
+            <div id="premiumGoalWall" class="premium-goals"></div>
+          </div>
 
-        <div class="action-grid">
-          <button class="app-action primary" type="button" data-open-view="participer">➕ Participer</button>
-          <button class="app-action secondary" type="button" data-open-view="classement">🏆 Voir le classement</button>
+          <div class="premium-section-heading">
+            <h2>🏆 Podium kilométrique</h2>
+            <button class="refresh-live" type="button" data-refresh-live>↻ Actualiser</button>
+          </div>
+          <div id="homePodium" class="podium-list"></div>
+
+          <div class="action-grid">
+            <button class="app-action primary" type="button" data-open-view="participer">➕ Participer maintenant</button>
+            <button class="app-action secondary" type="button" data-open-view="classement">🏆 Voir le classement</button>
+          </div>
+
+          <div class="privacy-note">🔒 Statistiques agrégées uniquement. Aucune initiale et aucune photo ne sont publiées.</div>
         </div>
-        <div class="privacy-note">🔒 Les statistiques sont uniquement agrégées. Aucune initiale et aucune photo ne sont publiées.</div>
       </div>
     </div>
   </section>
@@ -1599,6 +1990,79 @@ function showLiveError(message) {
   }
 }
 
+
+function animatePremiumNumber(elementId, target, duration) {
+  const element = document.getElementById(elementId);
+  if (!element) return;
+
+  const end = Number(target || 0);
+  const startTime = performance.now();
+  const total = Math.max(450, duration || 900);
+
+  function step(now) {
+    const progress = Math.min(1, (now - startTime) / total);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = end * eased;
+
+    element.textContent = new Intl.NumberFormat("fr-FR", {
+      maximumFractionDigits: 1
+    }).format(current);
+
+    if (progress < 1) requestAnimationFrame(step);
+  }
+
+  requestAnimationFrame(step);
+}
+
+function updatePremiumCountdown(start, end) {
+  const element = document.getElementById("premiumCountdown");
+  if (!element) return;
+
+  const today = new Date();
+  today.setHours(0,0,0,0);
+
+  const startDate = start ? new Date(start + "T00:00:00") : null;
+  const endDate = end ? new Date(end + "T23:59:59") : null;
+
+  if (startDate && today < startDate) {
+    const days = Math.ceil((startDate - today) / 86400000);
+    element.textContent = "⏳ Début dans " + days + " jour" + (days > 1 ? "s" : "");
+    return;
+  }
+
+  if (endDate && today <= endDate) {
+    const days = Math.max(0, Math.ceil((endDate - today) / 86400000));
+    element.textContent = "🔥 Encore " + days + " jour" + (days > 1 ? "s" : "");
+    return;
+  }
+
+  if (endDate && today > endDate) {
+    element.textContent = "🏁 Défi terminé";
+    return;
+  }
+
+  element.textContent = "🏃 Défi en cours";
+}
+
+function renderPremiumGoalWall(goals, totalKm, nextGoal) {
+  const container = document.getElementById("premiumGoalWall");
+  if (!container) return;
+
+  const list = Array.isArray(goals) ? goals : [];
+
+  container.innerHTML = list.map(function(goal) {
+    const reached = Number(totalKm || 0) >= Number(goal.km || 0);
+    const current = nextGoal && nextGoal.km === goal.km;
+    const className = reached ? "premium-goal reached" : current ? "premium-goal current" : "premium-goal";
+
+    return '<div class="' + className + '">' +
+      '<span class="emoji">' + escapeHtml((goal.niveau || "🎯").split(" ")[0]) + '</span>' +
+      '<strong>' + escapeHtml(goal.niveau || "Objectif") + '</strong>' +
+      '<small>' + formatKm(goal.km || 0) + (reached ? " • atteint" : current ? " • en cours" : "") + '</small>' +
+      '</div>';
+  }).join("");
+}
+
 function renderCaapLiveStats() {
   const d = caapLiveData;
   const challenge = d.defi || {};
@@ -1613,6 +2077,8 @@ function renderCaapLiveStats() {
   setText("liveSlogan", challenge.slogan || "Chaque kilomètre compte !");
   setText("formChallengeName", "🏃 " + (challenge.nomDuDefi || "Défi Collèges Actifs"));
   setText("livePeriod", formatCaapPeriod(challenge.dateDebut, challenge.dateFin));
+  updatePremiumCountdown(challenge.dateDebut, challenge.dateFin);
+  animatePremiumNumber("premiumKmCounter", totals.km || 0, 1100);
 
   setText("kpiParticipants", formatNumber(totals.participants || 0));
   setText("kpiKm", formatKm(totals.km || 0));
@@ -1628,6 +2094,11 @@ function renderCaapLiveStats() {
       ? formatKm(totals.km || 0) + " sur " + formatKm(progress.nextGoal.km) +
         " • encore " + formatKm(progress.remaining || 0)
       : "Tous les paliers configurés sont atteints !"
+  );
+  renderPremiumGoalWall(
+    [].concat(progress.reachedGoals || []).concat(progress.nextGoal ? [progress.nextGoal] : []),
+    totals.km || 0,
+    progress.nextGoal
   );
 
   setText("todayParticipants", formatNumber(today.participants || 0));
