@@ -2036,7 +2036,64 @@
       color: #64748B;
     }
 
-  </style>
+  
+    /* === CLÔTURE AUTOMATIQUE CAAP 2026 — 1er OCTOBRE === */
+    .closure-celebration {
+      padding: 34px 22px 30px;
+      text-align: center;
+      background:
+        radial-gradient(circle at 15% 15%, rgba(255,230,109,.35), transparent 28%),
+        radial-gradient(circle at 85% 20%, rgba(78,205,196,.28), transparent 30%),
+        linear-gradient(145deg, #fff 0%, #fff9f2 52%, #f2fffd 100%);
+    }
+    .closure-confetti { font-size: 1.65rem; letter-spacing: .35rem; margin-bottom: 12px; }
+    .closure-badge {
+      display:inline-block; padding:8px 14px; border-radius:999px;
+      background:#172554; color:#fff; font-size:.68rem; font-weight:900;
+      letter-spacing:.08em; margin-bottom:14px;
+    }
+    .closure-celebration h1 {
+      margin:0; font-size:clamp(1.75rem,5vw,3rem); line-height:1.02; color:#172554;
+    }
+    .closure-lead { margin:9px 0 18px!important; font-size:1.05rem!important; font-weight:900; color:#FF6B35; }
+    .closure-celebration p { max-width:720px; margin:12px auto; line-height:1.55; color:#475569; }
+    .closure-total {
+      display:flex; justify-content:center; align-items:baseline; gap:10px;
+      margin:22px auto 12px; color:#FF6B35;
+    }
+    .closure-total strong { font-size:clamp(3rem,10vw,5.4rem); line-height:.9; }
+    .closure-total span { font-size:1rem; font-weight:900; }
+    .closure-kpis {
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;
+      max-width:520px; margin:18px auto;
+    }
+    .closure-kpis div { padding:14px; border-radius:16px; background:#fff; box-shadow:0 8px 24px rgba(15,23,42,.08); }
+    .closure-kpis strong { display:block; font-size:1.45rem; color:#172554; }
+    .closure-kpis span { font-size:.68rem; font-weight:800; text-transform:uppercase; color:#64748B; }
+    .closure-message {
+      padding:16px; border-radius:16px; background:rgba(78,205,196,.12);
+      border:1px solid rgba(78,205,196,.25);
+    }
+    .closure-thanks { margin:18px 0; font-size:1.05rem; font-weight:900; color:#172554; }
+    .closure-actions { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin:18px 0; }
+    .closure-celebration small { color:#64748B; font-weight:700; }
+    .closed-participation {
+      max-width:760px; margin:18px auto; padding:34px 22px; text-align:center;
+      border-radius:24px; background:linear-gradient(145deg,#fff,#f8fafc);
+      box-shadow:0 12px 35px rgba(15,23,42,.10);
+    }
+    .closed-icon { font-size:3rem; }
+    .closed-participation h2 { margin:8px 0; color:#172554; font-size:1.65rem; }
+    .closed-participation p { color:#64748B; margin:6px 0; }
+    body.caap-closed #view-accueil .welcome-hero,
+    body.caap-closed #view-accueil .welcome-body { display:none!important; }
+    body.caap-closed #view-participer .form-container { display:none!important; }
+    @media(max-width:620px){
+      .closure-celebration { padding:26px 15px 24px; }
+      .closure-kpis { grid-template-columns:1fr 1fr; }
+    }
+
+</style>
 </head>
 <body>
   <div id="installBanner" class="install-banner" role="status">
@@ -2049,6 +2106,35 @@
 
   <section id="view-accueil" class="app-view active">
     <div class="welcome-card premium-animate">
+      <div id="closureCelebration" class="closure-celebration" hidden>
+        <div class="closure-confetti">🎉 🌍 👏 🎉</div>
+        <div class="closure-badge">🏁 DÉFI 2026 TERMINÉ</div>
+        <h1>BRAVO À TOUTES ET À TOUS !</h1>
+        <p class="closure-lead">30 jours pour bouger ensemble !</p>
+        <p>
+          Du 1er au 30 septembre 2026, élèves, personnels et parents des
+          <strong>Collèges Actifs</strong> se sont mobilisés dans le cadre de
+          <strong>« Septembre Bouge »</strong>.
+        </p>
+        <div class="closure-total">
+          <strong id="closureTotalKm">—</strong><span>km parcourus</span>
+        </div>
+        <div class="closure-kpis">
+          <div><strong id="closureParticipants">—</strong><span>participants</span></div>
+          <div><strong id="closureSchools">—</strong><span>collèges mobilisés</span></div>
+        </div>
+        <p class="closure-message">
+          🌍 Le tour du monde n’a pas été atteint… mais quelle aventure collective !
+          Une participation exemplaire et un élan collectif extraordinaire pour faire
+          de l’activité physique une habitude quotidienne.
+        </p>
+        <div class="closure-thanks">👏 Félicitations et merci à toutes et à tous !</div>
+        <div class="closure-actions">
+          <button class="app-action primary" type="button" data-open-view="resultats">📊 Voir les résultats définitifs</button>
+          <button class="app-action secondary" type="button" data-open-view="classement">🏆 Voir les classements</button>
+        </div>
+        <small>Collèges Actifs – Avenir Positif • Académie de Paris</small>
+      </div>
       <div class="welcome-hero">
         <div class="welcome-eyebrow">🏃 Défi collectif • Rentrée 2026</div>
         <h1 id="liveChallengeName">Défi Collèges Actifs</h1>
@@ -2322,6 +2408,16 @@
   </section>
 
 <section id="view-participer" class="app-view">
+  <div id="closedParticipation" class="closed-participation" hidden>
+    <div class="closed-icon">🏁</div>
+    <h2>Le défi 2026 est terminé</h2>
+    <p>Les participations sont désormais closes.</p>
+    <strong>Merci pour votre formidable mobilisation !</strong>
+    <div class="closure-actions">
+      <button class="app-action primary" type="button" data-open-view="resultats">📊 Voir les résultats</button>
+      <button class="app-action secondary" type="button" data-open-view="accueil">🏠 Accueil</button>
+    </div>
+  </div>
   <!-- FORM -->
   <div class="form-container">
     <h2>📋 Enregistrez votre activité</h2>
@@ -2511,6 +2607,38 @@
 
 <script>
 const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz52-Edrt34k6DJVXn_By5L7kNoyCy4knUh35QoScVu8EdGdACb0ir_YDy_BAnrefE1/exec";
+const CAAP_CLOSURE_AT = new Date("2026-10-01T00:00:00+02:00");
+
+function isCaapClosed(){
+  return Date.now() >= CAAP_CLOSURE_AT.getTime();
+}
+
+function applyCaapClosureState(){
+  const closed = isCaapClosed();
+  document.body.classList.toggle("caap-closed", closed);
+
+  const celebration = document.getElementById("closureCelebration");
+  const closedParticipation = document.getElementById("closedParticipation");
+  if(celebration) celebration.hidden = !closed;
+  if(closedParticipation) closedParticipation.hidden = !closed;
+
+  document.querySelectorAll('.nav-btn[data-view="participer"]').forEach(function(button){
+    if(closed){
+      button.innerHTML = "<b>🏁</b>Défi terminé";
+    }else{
+      button.innerHTML = "<b>➕</b>Participer";
+    }
+  });
+}
+
+function updateClosureFinalStats(){
+  if(!isCaapClosed() || !caapLiveData) return;
+  const totals = caapLiveData.totals || {};
+  setText("closureTotalKm", formatKm(totals.km || 0).replace(" km",""));
+  setText("closureParticipants", formatNumber(totals.participants || 0));
+  setText("closureSchools", formatNumber(totals.activeSchools || totals.configuredSchools || 6));
+}
+
 const form=document.getElementById("activityForm");
 const dateInput=document.getElementById("date");
 const statutSelect=document.getElementById("statut");
@@ -2533,7 +2661,16 @@ let deferredInstallPrompt=null;
 (function init(){
   resetDate();
   registerServiceWorker();
+  applyCaapClosureState();
   retryQueuedSubmissions();
+  setInterval(function(){
+    const wasClosed = document.body.classList.contains("caap-closed");
+    applyCaapClosureState();
+    if(!wasClosed && isCaapClosed()){
+      loadCaapLiveStats();
+      openCaapView("accueil");
+    }
+  }, 30000);
 })();
 
 function resetDate(){
@@ -2623,6 +2760,12 @@ function clearPhoto(){
 form.addEventListener("submit",async function(e){
   e.preventDefault();
   clearStatus();
+
+  if(isCaapClosed()){
+    applyCaapClosureState();
+    showStatus("🏁 Le défi 2026 est terminé. Les participations sont désormais closes.","error");
+    return;
+  }
 
   const data={
     date:dateInput.value,
@@ -2752,11 +2895,15 @@ async function retryQueuedSubmissions(){
   if(!navigator.onLine)return;
   try{
     const items=await getQueued();
+    let sentCount=0;
     for(const item of items){
-      await sendSubmission(item.data);
-      await deleteQueued(item.id);
+      if(Number(item.createdAt || 0) < CAAP_CLOSURE_AT.getTime()){
+        await sendSubmission(item.data);
+        await deleteQueued(item.id);
+        sentCount++;
+      }
     }
-    if(items.length)showStatus("✅ "+items.length+" saisie(s) en attente ont été transmises.","success");
+    if(sentCount)showStatus("✅ "+sentCount+" saisie(s) en attente ont été transmises.","success");
   }catch(error){
     console.warn("Nouvelle tentative ultérieure",error);
   }
@@ -2839,6 +2986,7 @@ document.querySelectorAll("[data-ranking]").forEach(function(button) {
 });
 
 function openCaapView(name) {
+  applyCaapClosureState();
   document.querySelectorAll(".app-view").forEach(function(view) {
     view.classList.toggle("active", view.id === "view-" + name);
   });
@@ -3081,6 +3229,7 @@ function renderCaapLiveStats() {
   );
   populateDynamicSelects(d);
   populateSchoolViewSelect(d);
+  updateClosureFinalStats();
 
   document.getElementById("liveLoading").hidden = true;
   document.getElementById("liveContent").hidden = false;
